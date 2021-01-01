@@ -1,0 +1,12 @@
+#!/bin/bash
+pac=$1
+if [ -z "$pac" ]
+then
+	echo "No package name was entered, canceling..."
+	exit 0
+fi
+git clone https://aur.archlinux.org/$pac.git
+cd $pac
+makepkg -sic
+cd ..
+echo 'pacman' | sudo rm -r $pac
