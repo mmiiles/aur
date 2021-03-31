@@ -2,7 +2,7 @@
 pac=$1
 if [ -z "$pac" ]
 then
-	echo "No package name was entered, canceling..."
+	echo "No package name was entered, cancelling..."
 	exit 0
 fi
 git clone https://aur.archlinux.org/$pac.git
