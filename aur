@@ -1,12 +1,17 @@
 #!/bin/bash
-pac=$1
-if [ -z "$pac" ]
+arg=$1
+
+if [ -z "$arg" ]
 then
 	echo "No package name was entered, cancelling..."
 	exit 0
 fi
-git clone https://aur.archlinux.org/$pac.git
-cd $pac
-makepkg -sic
-cd ..
-echo 'password' | sudo rm -r $pac
+
+for pac in "$@"
+do
+	git clone https://aur.archlinux.org/$pac.git
+	cd $pac
+	makepkg -sic
+	cd ..
+	echo 'password' | sudo rm -r $pac
+done
