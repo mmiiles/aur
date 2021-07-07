@@ -13,5 +13,5 @@ do
 	cd $pac
 	makepkg -sic
 	cd ..
-	echo 'password' | sudo rm -r $pac
+	sudo rm -r $pac
 done
